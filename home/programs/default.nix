@@ -1,14 +1,14 @@
 {
   imports = [
-    ./desktop
-    ./shell
+#    ./desktop
+#    ./shell
     ./coding
-    ./terminal
-    ./utils
-    ./browser
-    ./documents
-    ./network
-    ./study
-    ./social
+#    ./terminal
+#    ./utils
+#    ./browser
+#    ./documents
+#    ./network
+#    ./study
+#    ./social
   ];
 }

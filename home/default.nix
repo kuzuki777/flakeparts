@@ -1,14 +1,14 @@
 {
   pkgs,
-  lib,
+  #lib,
   user,
   ...
 }:
 {
   imports = [
-    ./lib
+  #  ./lib
     ./programs
-    ./tweaks
+  #  ./tweaks
   ];
 
   home = {
