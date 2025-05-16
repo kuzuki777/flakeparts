@@ -38,7 +38,7 @@ let
         modules = extraOSModules ++ sharedOSModules;
       };
 
-      homeConfigurations."${user}@${host}" = inputs.home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.${user} = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages."x86_64-linux";
         extraSpecialArgs = {
           inherit
