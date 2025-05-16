@@ -54,5 +54,14 @@ let
 
 in
 {
-  flake = import ./hosts.nix |> map mkHost |> builtins.foldl' (x: y: x // y) { };
+  #flake = import ./hosts.nix |> map mkHost |> builtins.foldl' (x: y: x // y) { };
+  flake = let
+    hosts = import ./hosts.nix;
+    configs = map mkHost hosts;
+  in
+    builtins.foldl' (acc: host: {
+      nixosConfigurations = acc.nixosConfigurations // host.nixosConfigurations;
+      homeConfigurations = acc.homeConfigurations // host.homeConfigurations;
+    }) { nixosConfigurations = {}; homeConfigurations = {}; } configs;
+
 }
