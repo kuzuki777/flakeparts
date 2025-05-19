@@ -2,8 +2,8 @@
   {
     host = "nixos";
     user = "mark";
-    extraOSModules = [ ./nixos/os.nix ];
-    extraHomeModules = [ ./nixos/home.nix ];
+    #extraOSModules = [ ./nixos/os.nix ];
+    #extraHomeModules = [ ./nixos/homenew.nix ];
     extraHomeArgs = {
       nixosVersion = "unstable";
       homeManagerVersion = "master";
