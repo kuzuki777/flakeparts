@@ -5,22 +5,20 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
+    #Add Home-manager
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs"; # optional but recommended
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, flake-parts, ... }:
+  outputs = inputs@{ flake-parts, home-manager, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         # To import a flake module
         # 1. Add foo to inputs
         # 2. Add foo as a parameter to the outputs function
         # 3. Add here: foo.flakeModule
-        ./hosts
-        { _module.args = { inherit inputs self nixpkgs; }; }
+	home-manager.flakeModules.home-manager
+        
       ];
       systems = [ "x86_64-linux" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
@@ -31,19 +29,12 @@
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages.default = pkgs.hello;
       };
-      flake = {
-
-       homeManagerModules = import ./modules/home-manager;
-
-        # The usual flake attributes can be defined here, including system-
-        # agnostic ones like nixosModule and system-enumerating ones, although
-        # those are more easily expressed in perSystem.
-       # nixosConfigurations.nixos =inputs.nixpkgs.lib.nixosSystem  {
-       #     system =  "x86_64-linux" ;
-       #     modules = [
-       #       ./os/system/configuration.nix
-       #     ];
-       # };
-      };
+      
+      flake = 
+	let
+  	  hosts = import ./hosts/default.nix { inherit inputs; system = "x86_64-linux"; };
+	in {
+  	  inherit (hosts) nixosConfigurations homeConfigurations;
+	};
     };
 }

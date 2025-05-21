@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-     # ./hardware-configuration.nix
+     ./hardware-configuration.nix
     ];
 
   # Bootloader.
@@ -48,6 +48,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.desktopManager.runXdgAutostartIfNone = true; #For i18N Input method
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -73,6 +74,9 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Enable bluetooth manager
+  services.blueman.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;

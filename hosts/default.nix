@@ -1,67 +1,27 @@
+# hosts/default.nix
+{ inputs, system }:
+
 {
-  inputs,
-  nixpkgs,
-  self,
-  ...
-}:
-let
-  sharedOSModules = [
-    ../os
-    ../nix
-  ];
-
-  sharedHomeModules = [
-  #  ../home
-  ] ++ (builtins.attrValues self.homeManagerModules);
-
-  mkHost =
-    {
-      host,
-      user,
-      extraOSModules ? [ ],
-      extraOSArgs ? { },
-      extraHomeModules ? [ ],
-      extraHomeArgs ? { },
-      ...
-    }:
-    {
-      nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit
-            inputs
-            nixpkgs
-            self
-            host
-            user
-            ;
-        } // extraOSArgs;
-        modules = extraOSModules ++ sharedOSModules;
-      };
-
-     # homeConfigurations.mark = inputs.home-manager.lib.homeManagerConfiguration {
-     #   pkgs = nixpkgs.legacyPackages."x86_64-linux";
-     #   extraSpecialArgs = {
-     #     inherit
-     #       inputs
-     #       self
-     #       host
-     #       user
-     #       ;
-     #   } // extraHomeArgs;
-     #   modules = extraHomeModules ++ sharedHomeModules;
-     # };
+  nixosConfigurations = {
+    nixos = inputs.nixpkgs.lib.nixosSystem {
+      inherit system;
+      modules = [
+        ../os/system/configuration.nix
+        # Optionally add home-manager here if using it as a NixOS module:
+        # inputs.home-manager.nixosModules.home-manager
+      ];
     };
+  };
 
-in
-{
-  flake = import ./hosts.nix |> map mkHost |> builtins.foldl' (x: y: x // y) { };
-  #flake = let
-  #  hosts = import ./hosts.nix;
-  #  configs = map mkHost hosts;
-  #in
-  #  builtins.foldl' (acc: host: {
-  #    nixosConfigurations = acc.nixosConfigurations // host.nixosConfigurations;
-  #    homeConfigurations = acc.homeConfigurations // host.homeConfigurations;
-  #  }) { nixosConfigurations = {}; homeConfigurations = {}; } configs;
-
+  homeConfigurations = {
+    # Replace this with actual username and home-manager config path
+    "mark@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit system;
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      modules = [
+       # ../home/your-user/home.nix
+      ];
+    };
+  };
 }
+
