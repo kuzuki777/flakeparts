@@ -17,7 +17,7 @@
         # 1. Add foo to inputs
         # 2. Add foo as a parameter to the outputs function
         # 3. Add here: foo.flakeModule
-	home-manager.flakeModules.home-manager
+        home-manager.flakeModules.home-manager
         
       ];
       systems = [ "x86_64-linux" ];
@@ -32,7 +32,7 @@
       
       flake = 
 	let
-  	  hosts = import ./hosts/default.nix { inherit inputs; system = "x86_64-linux"; };
+  	  hosts = import ./hosts { inherit inputs; system = "x86_64-linux"; };
 	in {
   	  inherit (hosts) nixosConfigurations homeConfigurations;
 	};
