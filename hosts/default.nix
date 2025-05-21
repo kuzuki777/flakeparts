@@ -6,7 +6,8 @@
     nixos = inputs.nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        ../os/system/configuration.nix
+        (import ../os)
+        #../os/system/configuration.nix
         # Optionally add home-manager here if using it as a NixOS module:
         # inputs.home-manager.nixosModules.home-manager
       ];
