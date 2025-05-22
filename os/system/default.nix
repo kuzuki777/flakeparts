@@ -2,7 +2,7 @@
   imports = [
     ./configuration.nix
     #./boot.nix
-    #./fonts.nix
+    ./fonts.nix
     #./stylix.nix
   ];
 }
