@@ -31,10 +31,10 @@
       };
       
       flake = 
-	let
-  	  hosts = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-	in {
-  	  inherit (hosts) nixosConfigurations homeConfigurations;
+      let
+          hosts = import ./hosts { inherit inputs; system = "x86_64-linux"; };
+      in {
+          inherit (hosts) nixosConfigurations homeConfigurations;
 	};
     };
 }
