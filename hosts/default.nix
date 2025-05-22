@@ -21,6 +21,9 @@
       modules = [
         ../home
       ];
+      extraSpecialArgs = {
+        user = "mark";
+      };
     };
   };
 }

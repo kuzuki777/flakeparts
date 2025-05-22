@@ -14,6 +14,7 @@
   home = {
     username = user;
     homeDirectory = "/home/${user}";
+    stateVersion = "24.11";
 
     packages = with pkgs; [
       # files
