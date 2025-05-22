@@ -5,7 +5,7 @@
 #    ./python.nix
     ./neovide.nix
 #    ./zed.nix
-#    ./nixvim
+    ./nixvim
 #    ./R.nix
 #    ./distrobox.nix
   ];

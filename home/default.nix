@@ -20,7 +20,6 @@
       zip
       xz
       unzip
-
       # utils
       ripgrep
       zoxide
@@ -30,7 +29,6 @@
     ];
 
   };
-
 
   programs = {
     git = {

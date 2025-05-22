@@ -15,12 +15,11 @@
   };
 
   homeConfigurations = {
-    # Replace this with actual username and home-manager config path
-    "mark@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
+    mark = inputs.home-manager.lib.homeManagerConfiguration {
       inherit system;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       modules = [
-       # ../home/your-user/home.nix
+        ../home
       ];
     };
   };
