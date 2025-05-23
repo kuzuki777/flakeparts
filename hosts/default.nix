@@ -1,5 +1,5 @@
 # hosts/default.nix
-{ inputs, ... }:
+{ inputs, system }:
 
 {
   flake.nixosConfigurations = {
