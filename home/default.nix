@@ -13,7 +13,7 @@
   ];
 
   home = {
-    username = mark;
+    username = "mark";
     homeDirectory = "/home/mark";
     stateVersion = "25.11";
 
@@ -43,7 +43,6 @@
         };
       };
     };
-
     home-manager.enable = true;
   };
 }
