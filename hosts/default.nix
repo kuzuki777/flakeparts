@@ -14,7 +14,9 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.mark = import ./../home { inherit inputs; };
+          home-manager.users.mark = import ./../home { 
+            inherit inputs system;
+            pkgs = inputs.nixpkgs.legacyPackages.${system};};
         }
       ];
     };
