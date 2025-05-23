@@ -1,4 +1,5 @@
 {
+  inputs,
   pkgs,
   #lib,
   user,
@@ -7,13 +8,13 @@
 {
   imports = [
   #  ./lib
-    ./programs
+    ./programs { inherit inputs; }
   #  ./tweaks
   ];
 
   home = {
-    username = user;
-    homeDirectory = "/home/${user}";
+    username = mark;
+    homeDirectory = "/home/mark";
     stateVersion = "25.11";
 
     packages = with pkgs; [

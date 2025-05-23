@@ -1,11 +1,7 @@
+{ inputs, ... }:
+
 {
-  programs.nixvim = {
-    enable = true;
-    colorscheme = "tokyonight";
-    plugins = {
-      treesitter = {
-        enable = true;
-      };
-    };
-  };
+  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
+
+  programs.nixvim.enable = true;
 }
