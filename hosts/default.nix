@@ -21,7 +21,7 @@
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       modules = [
         ../home
-        inputs.nixvim.nixosModules.nixvim
+        inputs.nixvim.homeManagerModules.nixvim
       ];
       extraSpecialArgs = {
         user = "mark";
