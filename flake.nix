@@ -36,11 +36,9 @@
         packages.default = pkgs.hello;
       };
       
-      flake = 
-      let
-          hosts = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-      in {
-          inherit (hosts) nixosConfigurations homeConfigurations;
-	};
+      flake = {
+        nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
+        homeConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
+      };
     };
 }
