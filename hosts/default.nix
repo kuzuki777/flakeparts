@@ -10,6 +10,7 @@
         #../os/system/configuration.nix
         # Optionally add home-manager here if using it as a NixOS module:
         inputs.home-manager.nixosModules.home-manager
+        
       ];
     };
   };
@@ -20,9 +21,11 @@
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       modules = [
         ../home
+        inputs.nixvim.nixosModules.nixvim
       ];
       extraSpecialArgs = {
         user = "mark";
+        inherit inputs;  # Add this line to pass inputs
       };
     };
   };
