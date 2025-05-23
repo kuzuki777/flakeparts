@@ -4,7 +4,7 @@
 {
   flake.nixosConfigurations = {
     nixos = inputs.nixpkgs.lib.nixosSystem {
-       inherit system;
+      inherit system;
       modules = [
         (import ../os)
         #../os/system/configuration.nix
