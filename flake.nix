@@ -18,15 +18,22 @@
 
   outputs = inputs@{ flake-parts, home-manager, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
+
+      systems = [ "x86_64-linux" ];
+
       imports = [
         # To import a flake module
         # 1. Add foo to inputs
         # 2. Add foo as a parameter to the outputs function
         # 3. Add here: foo.flakeModule
-        home-manager.flakeModules.home-manager
-        
+        # home-manager.flakeModules.home-manager
+        ({ inputs, ... }:
+          import ./hosts {
+            inherit inputs;
+            system = "x86_64-linux";
+          })
       ];
-      systems = [ "x86_64-linux" ];
+      
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         # Per-system attributes can be defined here. The self' and inputs'
         # module parameters provide easy access to attributes of the same
@@ -36,9 +43,9 @@
         packages.default = pkgs.hello;
       };
       
-      flake = {
-        nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-        homeConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-      };
+      # flake = {
+      #   nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
+      #   homeConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
+      # };
     };
 }
