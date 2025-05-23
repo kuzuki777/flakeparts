@@ -16,7 +16,7 @@
 
   homeConfigurations = {
     mark = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit system;
+      # inherit system;
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       modules = [
         ../home
