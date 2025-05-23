@@ -35,7 +35,7 @@
   programs = {
     git = {
       enable = true;
-      userName = "kuzuki";
+      userName = "mark wang";
       userEmail = "markwangfreetyle@gmail.com";
       extraConfig = {
         safe = {
