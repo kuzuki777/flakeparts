@@ -44,7 +44,10 @@
       };
 
       flake = {
-        nixosConfigurations = import ./hosts{ inherit nixpkgs;};
+        nixosConfigurations = import ./hosts {
+          inherit nixpkgs inputs system;
+          system = "x86_64-linux";
+        };
       };
       
       # flake = {

@@ -1,13 +1,23 @@
 # hosts/default.nix
-{ nixpkgs }:
-
+{ inputs, nixpkgs, system }:
 {
 
+  nixosConfigurations = {
     nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
       modules = [
         ../os
       ];
+    };
+  };
+
+  homeConfigurations = {
+    mark = {
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      modules = [
+        ../home
+      ];
+    };
   };
 
   # flake.nixosConfigurations = {
