@@ -48,6 +48,12 @@
           inherit nixpkgs inputs;
           system = "x86_64-linux";
         };
+
+        # Add this to expose home configurations
+        homeConfigurations = import ./hosts {
+          inherit nixpkgs inputs;
+          system = "x86_64-linux";
+        };
       };
       
       # flake = {
