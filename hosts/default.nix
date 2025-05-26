@@ -2,14 +2,12 @@
 { inputs, nixpkgs, system }:
 {
 
-  nixosConfigurations = {
     nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../os
       ];
     };
-  };
 
   homeConfigurations = {
     mark = {
