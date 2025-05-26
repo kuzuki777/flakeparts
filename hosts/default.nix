@@ -2,7 +2,7 @@
 { inputs, nixpkgs, system }:
 {
 
-    nixos = nixpkgs.lib.nixosSystem {
+  nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
         ../os
@@ -15,6 +15,9 @@
       modules = [
         ../home
       ];
+      extraSpecialArgs = {
+      inherit inputs;
+    };
     };
   };
 
