@@ -16,7 +16,7 @@
 
   };
 
-  outputs = inputs@{ flake-parts, home-manager, ... }:
+  outputs = inputs@{ flake-parts, nixpkgs, home-manager, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
 
       systems = [ "x86_64-linux" ];
