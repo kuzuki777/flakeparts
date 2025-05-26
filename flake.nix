@@ -1,5 +1,5 @@
 {
-  description = "Description for the project";
+  description = "Flake For NixOs and Home-manager standalone";
 
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
@@ -21,18 +21,18 @@
 
       systems = [ "x86_64-linux" ];
 
-      imports = [
-        # To import a flake module
-        # 1. Add foo to inputs
-        # 2. Add foo as a parameter to the outputs function
-        # 3. Add here: foo.flakeModule
-        # home-manager.flakeModules.home-manager
-        ({ inputs, ... }:
-          import ./hosts {
-            inherit inputs;
-            system = "x86_64-linux";
-          })
-      ];
+      # imports = [
+      #   # To import a flake module
+      #   # 1. Add foo to inputs
+      #   # 2. Add foo as a parameter to the outputs function
+      #   # 3. Add here: foo.flakeModule
+      #   # home-manager.flakeModules.home-manager
+      #   ({ inputs, ... }:
+      #     import ./hosts {
+      #       inherit inputs;
+      #       system = "x86_64-linux";
+      #     })
+      # ];
       
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         # Per-system attributes can be defined here. The self' and inputs'
@@ -42,6 +42,10 @@
         # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
         packages.default = pkgs.hello;
       };
+
+      flake = {
+        nixosConfigurations = import ./hosts{ inherit nixpkgs;};
+      }
       
       # flake = {
       #   nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
