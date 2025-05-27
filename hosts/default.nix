@@ -21,7 +21,7 @@ in
     };
   };
 
-{
+
 
   # nixos = nixpkgs.lib.nixosSystem {
   #     inherit system;

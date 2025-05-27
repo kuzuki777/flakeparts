@@ -46,7 +46,7 @@
       flake = {
         # Merge the nixosConfigurations and homeConfigurations into top-level flake outputs
         # so other tools like `nixos-rebuild` or `home-manager` can use them
-        inherit (import ./hosts { inherit nixpkgs inputs system = "x86_64-linux"; })
+        inherit (import ./hosts { inherit nixpkgs inputs; system = "x86_64-linux"; })
           nixosConfigurations homeConfigurations;
       };
 
