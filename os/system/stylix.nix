@@ -11,6 +11,7 @@ in
     {
       enable = true;
       autoEnable = false;
+      base16Scheme = "catppuccin-mocha";
       targets = {
         console.enable = true;
         gnome.enable = true;
