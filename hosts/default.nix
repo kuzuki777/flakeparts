@@ -1,25 +1,46 @@
 # hosts/default.nix
 { inputs, nixpkgs, system }:
+
+let
+  pkgs = nixpkgs.legacyPackages.${system};
+in
 {
-
-  nixos = nixpkgs.lib.nixosSystem {
-      inherit system;
-      modules = [
-        ../os
-      ];
-    };
-
-  homeConfigurations = {
-    mark = {
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
-      modules = [
-        ../home
-      ];
-      extraSpecialArgs = {
-      inherit inputs;
-    };
+  nixosConfigurations = {
+    nixos = nixpkgs.lib.nixosSystem {
+      system = system;
+      modules = [ ../os ];
+      specialArgs = { inherit inputs; };
     };
   };
+
+  homeConfigurations = {
+    mark = inputs.home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [ ../home ];
+      extraSpecialArgs = { inherit inputs; };
+    };
+  };
+
+{
+
+  # nixos = nixpkgs.lib.nixosSystem {
+  #     inherit system;
+  #     modules = [
+  #       ../os
+  #     ];
+  #   };
+
+  # homeConfigurations = {
+  #   mark = {
+  #     pkgs = inputs.nixpkgs.legacyPackages.${system};
+  #     modules = [
+  #       ../home
+  #     ];
+  #     extraSpecialArgs = {
+  #     inherit inputs;
+  #     };
+  #   };
+  # };
 
   # flake.nixosConfigurations = {
   #   nixos = inputs.nixpkgs.lib.nixosSystem {

@@ -44,17 +44,24 @@
       };
 
       flake = {
-        nixosConfigurations = import ./hosts {
-          inherit nixpkgs inputs;
-          system = "x86_64-linux";
-        };
-
-        # Add this to expose home configurations
-        homeConfigurations = import ./hosts {
-          inherit nixpkgs inputs;
-          system = "x86_64-linux";
-        };
+        # Merge the nixosConfigurations and homeConfigurations into top-level flake outputs
+        # so other tools like `nixos-rebuild` or `home-manager` can use them
+        inherit (import ./hosts { inherit nixpkgs inputs system = "x86_64-linux"; })
+          nixosConfigurations homeConfigurations;
       };
+
+      # flake = {
+      #   nixosConfigurations = import ./hosts {
+      #     inherit nixpkgs inputs;
+      #     system = "x86_64-linux";
+      #   };
+
+      #   # Add this to expose home configurations
+      #   homeConfigurations = import ./hosts {
+      #     inherit nixpkgs inputs;
+      #     system = "x86_64-linux";
+      #   };
+      # };
       
       # flake = {
       #   nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
