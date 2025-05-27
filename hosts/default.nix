@@ -8,7 +8,10 @@ in
   nixosConfigurations = {
     nixos = nixpkgs.lib.nixosSystem {
       system = system;
-      modules = [ ../os ];
+      modules = [ 
+        ../os
+        inputs.stylix.nixosModules.stylix
+      ];
       specialArgs = { inherit inputs; };
     };
   };
@@ -16,7 +19,10 @@ in
   homeConfigurations = {
     mark = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ ../home ];
+      modules = [ 
+        ../home
+        inputs.stylix.homeModules.stylix
+      ];
       extraSpecialArgs = { inherit inputs; };
     };
   };

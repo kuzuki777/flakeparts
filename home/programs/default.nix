@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports = [
 #    ./desktop
-#    ./shell
+    ./shell
     ./coding
 #    ./terminal
 #    ./utils
