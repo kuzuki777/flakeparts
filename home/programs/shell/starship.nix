@@ -179,20 +179,5 @@
       disabled = false
       symbol = ' '
 
-      [nix_shell]
-      format = 'via [$symbol$state( \($name\))]($style) '
-      symbol = "󱄅 "
-      style = "bold foam"
-      impure_msg = "impure"
-      pure_msg = "pure"
-      unknown_msg = ""
-      disabled = false
-      heuristic = false
-
-      [conda]
-      style = "bg:overlay fg:pine"
-      format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
-      disabled = false
-      symbol = '🅒 '
     '';
 }
