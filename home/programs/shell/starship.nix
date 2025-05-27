@@ -37,50 +37,6 @@
 
 
 
-      [directory]
-      format = "[╭─ $path ]($style)"
-      style = "bold iris"
-      truncation_length = 3
-      truncation_symbol = "…/"
-
-      [directory.substitutions]
-      Documents = "󰈙"
-      Pictures = " "
-
-      [git_branch]
-      format = "[](fg:overlay)[ $symbol $branch ]($style)[](fg:overlay) "
-      style = "bg:overlay fg:foam"
-      symbol = " "
-
-      [git_status]
-      disabled = false
-      style = "fg:love"
-      format = '([$all_status$ahead_behind]($style))'
-      up_to_date = '[ 󰋑 ](fg:iris)'
-      untracked = '[?\($count\)](fg:gold)'
-      stashed = '[\$](fg:iris)'
-      modified = '[!\($count\)](fg:gold)'
-      renamed = '[»\($count\)](fg:iris)'
-      deleted = '[✘\($count\)](style)'
-      staged = '[++\($count\)](fg:gold)'
-      ahead = '[⇡\($count\)](fg:foam)'
-      diverged = '⇕[\[](fg:iris)[⇡\($ahead_count\)](fg:foam)[⇣\($behind_count\)](fg:rose)[\]](fg:iris)'
-      behind = '[⇣\($count\)](fg:rose)'
-
-      [time]
-      disabled = false
-      format = " [](fg:overlay)[ $time 󰧱 ]($style)[](fg:overlay)"
-      style = "bg:overlay fg:purple"
-      time_format = "%H:%M"
-      use_12hr = true
-
-      [username]
-      disabled = false
-      format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
-      show_always = true
-      style_root = "bg:overlay fg:iris"
-      style_user = "bg:overlay fg:iris"
-
       
     '';
 }
