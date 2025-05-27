@@ -15,6 +15,17 @@
       $character \
       """
 
+      palette = "rose-pine"
+
+      [palettes.rose-pine]
+      overlay = '${base01}'
+      love = '${base08}'
+      gold = '${base0A}'
+      rose = '${base07}'
+      pine = '${base0D}'
+      foam = '${base0B}'
+      iris = '${base0E}'
+
 
 
       
