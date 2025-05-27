@@ -8,7 +8,7 @@
 {
   imports = [
   #  ./lib
-  #   ./programs { inherit inputs; }
+    ./programs
   #  ./tweaks
   ];
 
