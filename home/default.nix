@@ -49,7 +49,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "rose-pine";  # or whatever scheme you prefer
+
     # targets = {
     #   console.enable = true;
     #   gnome.enable = true;
