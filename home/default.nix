@@ -50,9 +50,9 @@
     enable = true;
     autoEnable = false;
     # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
-    overlays = {
-      enable = true;
-    };
+    # overlays = {
+    #   enable = true;
+    # };
     # image = ./wallpaper.jpg;
     # polarity = "dark";
     # targets = {
