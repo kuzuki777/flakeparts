@@ -49,7 +49,7 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    base16Scheme = "${inputs.base16-schemes}/share/themes/rose-pine.yaml";
     # targets = {
     #   console.enable = true;
     #   gnome.enable = true;
