@@ -22,7 +22,10 @@ in
         ../home
         inputs.stylix.homeModules.stylix
       ];
-      extraSpecialArgs = { inherit inputs; };
+      extraSpecialArgs = { 
+        inherit inputs;
+        self = inputs.self;
+      };
     };
   };
 

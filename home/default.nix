@@ -53,6 +53,8 @@
     overlays = {
       enable = true;
     };
+    image = ./wallpaper.jpg;
+    polarity = "dark";
     # targets = {
     #   console.enable = true;
     #   gnome.enable = true;
