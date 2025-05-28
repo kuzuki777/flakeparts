@@ -49,12 +49,12 @@
   stylix = {
     enable = true;
     autoEnable = false;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
+    # base16Scheme = "${pkgs.base16-schemes}/share/themes/rose-pine.yaml";
     overlays = {
       enable = true;
     };
-    image = ./wallpaper.jpg;
-    polarity = "dark";
+    # image = ./wallpaper.jpg;
+    # polarity = "dark";
     # targets = {
     #   console.enable = true;
     #   gnome.enable = true;
