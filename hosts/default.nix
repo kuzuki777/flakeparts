@@ -11,7 +11,7 @@ in
         ../os
         inputs.stylix.nixosModules.stylix
       ];
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; self = inputs.self};
     };
   };
 
