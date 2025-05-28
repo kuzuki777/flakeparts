@@ -53,7 +53,7 @@
     # overlays = {
     #   enable = true;
     # };
-    image = ./wallpaper.jpg;
+    image = ./wallpaper.jpeg;
     # polarity = "dark";
     # targets = {
     #   console.enable = true;
