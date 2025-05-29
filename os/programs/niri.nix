@@ -1,7 +1,7 @@
-{ pkgs, ... }:
-{
-  programs.niri = {
-    enable = true;
-    package = pkgs.niri;
-  };
-}
+# { pkgs, ... }:
+# {
+#   programs.niri = {
+#     enable = true;
+#     package = pkgs.niri;
+#   };
+# }
