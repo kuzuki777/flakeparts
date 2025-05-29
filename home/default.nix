@@ -53,7 +53,10 @@
     # overlays = {
     #   enable = true;
     # };
-    image = ./wallpaper.jpeg;
+    image = pkgs.fetchurl {
+      url = "https://i.imgur.com/c3CWmia.jpg";
+      sha256 = "0lgqwjl6jd1y84cz368s4sq0krzg67znqxirzapqxqvfdpn9rwbw";
+    };
     # polarity = "dark";
     # targets = {
     #   console.enable = true;
