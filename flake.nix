@@ -61,7 +61,7 @@
             system = "x86_64-linux";
             overlays = [
               (final: prev: {
-                niri-unstable = inputs.niri-unstable.packages.${system}.niri-unstable;
+                niri-unstable = inputs.niri-unstable;
               })
             ];
           })
