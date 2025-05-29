@@ -23,7 +23,7 @@ in
 
   homeConfigurations = {
     mark = inputs.home-manager.lib.homeManagerConfiguration {
-      # inherit pkgs;
+      inherit pkgs;
       modules = [ 
         ../home
         ../modules/home-manager
