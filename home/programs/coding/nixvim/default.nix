@@ -7,7 +7,7 @@
   imports = [
     ./lsp.nix
     ./cmp.nix
-    ./ai.nix
+    #./ai.nix
     ./lualine.nix
     ./treesitter.nix
     ./hop.nix
