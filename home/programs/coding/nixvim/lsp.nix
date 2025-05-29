@@ -40,13 +40,13 @@
               options =
                 let
                   flake = # nix
-                    ''(builtins.getFlake "/home/${user}/.config/nixos")'';
+                    ''(builtins.getFlake "/home/mark/.config/nixos")'';
                 in
                 {
                   nixos.expr = # nix
-                    ''${flake}.nixosConfigurations.${host}.options'';
+                    ''${flake}.nixosConfigurations.nixos.options'';
                   home_manager.expr = # nix
-                    ''${flake}.homeConfigurations."${user}@${host}".options'';
+                    ''${flake}.homeConfigurations.mark@nixos.options'';
                 };
             };
           };
