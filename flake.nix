@@ -19,6 +19,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri-unstable = {
+      url = "github:YalTeR/niri";
+      flake = false;
+    };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.niri-unstable.follows = "niri-unstable";
+    };
+
   };
 
   outputs = inputs@{ flake-parts, nixpkgs, home-manager, ... }:
@@ -26,18 +35,14 @@
 
       systems = [ "x86_64-linux" ];
 
-      # imports = [
-      #   # To import a flake module
-      #   # 1. Add foo to inputs
-      #   # 2. Add foo as a parameter to the outputs function
-      #   # 3. Add here: foo.flakeModule
-      #   # home-manager.flakeModules.home-manager
-      #   ({ inputs, ... }:
-      #     import ./hosts {
-      #       inherit inputs;
-      #       system = "x86_64-linux";
-      #     })
-      # ];
+      imports = [
+        # To import a flake module
+        # 1. Add foo to inputs
+        # 2. Add foo as a parameter to the outputs function
+        # 3. Add here: foo.flakeModule
+        # home-manager.flakeModules.home-manager
+
+      ];
       
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         # Per-system attributes can be defined here. The self' and inputs'
@@ -54,23 +59,5 @@
         inherit (import ./hosts { inherit nixpkgs inputs; system = "x86_64-linux"; })
           nixosConfigurations homeConfigurations;
       };
-
-      # flake = {
-      #   nixosConfigurations = import ./hosts {
-      #     inherit nixpkgs inputs;
-      #     system = "x86_64-linux";
-      #   };
-
-      #   # Add this to expose home configurations
-      #   homeConfigurations = import ./hosts {
-      #     inherit nixpkgs inputs;
-      #     system = "x86_64-linux";
-      #   };
-      # };
-      
-      # flake = {
-      #   nixosConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-      #   homeConfigurations = import ./hosts { inherit inputs; system = "x86_64-linux"; };
-      # };
     };
 }

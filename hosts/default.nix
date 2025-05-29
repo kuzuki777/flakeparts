@@ -10,6 +10,7 @@ in
       modules = [ 
         ../os
         inputs.stylix.nixosModules.stylix
+        inputs.niri.nixosModules.niri
       ];
       specialArgs = { inherit inputs; self = inputs.self;};
     };
@@ -22,6 +23,7 @@ in
         ../home
         ../modules/home-manager
         inputs.stylix.homeModules.stylix
+        inputs.niri.homeModules.niri
       ];
       extraSpecialArgs = { 
         inherit inputs;
