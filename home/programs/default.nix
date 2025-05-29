@@ -5,7 +5,7 @@
     ./coding
     ./terminal
 #    ./utils
-#    ./browser
+    ./browser
 #    ./documents
 #    ./network
 #    ./study
