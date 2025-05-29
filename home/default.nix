@@ -54,7 +54,7 @@
      url = "https://i.imgur.com/c3CWmia.jpeg";
      sha256 = "0lgqwjl6jd1y84cz368s4sq0krzg67znqxirzapqxqvfdpn9rwbw";
     };
-    polarity = "dark";
+    # polarity = "dark";
     # targets = {
     #   console.enable = true;
     #   gnome.enable = true;
