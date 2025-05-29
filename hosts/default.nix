@@ -14,7 +14,7 @@ in
         inputs.niri.nixosModules.niri
       ];
       specialArgs = { 
-        inherit inputs pkgs; 
+        inherit inputs; 
         self = inputs.self;
         
       };
