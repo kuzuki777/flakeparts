@@ -59,11 +59,6 @@
         inherit ( import ./hosts { 
             inherit nixpkgs inputs;
             system = "x86_64-linux";
-            overlays = [
-              (final: prev: {
-                niri-unstable = inputs.niri-unstable;
-              })
-            ];
           })
           nixosConfigurations homeConfigurations;
       };
