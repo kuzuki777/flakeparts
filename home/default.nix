@@ -48,7 +48,7 @@
 
   stylix = {
     enable = true;
-    # autoEnable = false;
+    autoEnable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     image = pkgs.fetchurl {
      url = "https://i.imgur.com/c3CWmia.jpeg";
