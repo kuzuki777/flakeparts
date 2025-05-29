@@ -12,7 +12,10 @@ in
         inputs.stylix.nixosModules.stylix
         inputs.niri.nixosModules.niri
       ];
-      specialArgs = { inherit inputs; self = inputs.self;};
+      specialArgs = { 
+        inherit inputs; 
+        self = inputs.self;
+      };
     };
   };
 
