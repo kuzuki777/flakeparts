@@ -58,7 +58,7 @@
         # so other tools like `nixos-rebuild` or `home-manager` can use them
         inherit ( import ./hosts { 
             inherit nixpkgs inputs;
-            system = ${system};
+            system = "x86_64-linux";
             overlays = [
               (final: prev: {
                 niri-unstable = inputs.niri-unstable.packages.${system}.niri-unstable;
