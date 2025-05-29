@@ -6,6 +6,7 @@ in
 {
   nixosConfigurations = {
     nixos = nixpkgs.lib.nixosSystem {
+      inherit pkgs;
       system = system;
       modules = [ 
         ../os
@@ -15,6 +16,7 @@ in
       specialArgs = { 
         inherit inputs; 
         self = inputs.self;
+        
       };
     };
   };
