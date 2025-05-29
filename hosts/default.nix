@@ -9,7 +9,6 @@ in
       system = system;
       modules = [ 
         ../os
-        ../nix
         inputs.stylix.nixosModules.stylix
       ];
       specialArgs = { inherit inputs; self = inputs.self;};
@@ -21,7 +20,6 @@ in
       inherit pkgs;
       modules = [ 
         ../home
-        ../nix
         ../modules/home-manager
         inputs.stylix.homeModules.stylix
       ];
