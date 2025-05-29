@@ -29,6 +29,7 @@ in
         ../modules/home-manager
         inputs.stylix.homeModules.stylix
         inputs.niri.homeModules.niri
+        inputs.nixvim.homeManagerModules.nixvim
       ];
       extraSpecialArgs = { 
         inherit inputs;
