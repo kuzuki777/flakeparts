@@ -23,9 +23,15 @@
       url = "github:YalTeR/niri";
       flake = false;
     };
+
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.niri-unstable.follows = "niri-unstable";
+    };
+
+    nixd = {
+      url = "github:nix-community/nixd";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
   };
