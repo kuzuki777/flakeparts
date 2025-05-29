@@ -1,6 +1,6 @@
 {
   imports = [
     ./basic.nix
-    ./niri.nix
+    #./niri.nix
   ];
 }
