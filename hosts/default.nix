@@ -21,6 +21,7 @@ in
       inherit pkgs;
       modules = [ 
         ../home
+        ../nix
         ../modules/home-manager
         inputs.stylix.homeModules.stylix
       ];
