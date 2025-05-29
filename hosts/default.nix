@@ -20,7 +20,7 @@ in
       inherit pkgs;
       modules = [ 
         ../home
-        ./modules/home-manager
+        ../modules/home-manager
         inputs.stylix.homeModules.stylix
       ];
       extraSpecialArgs = { 
