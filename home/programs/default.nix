@@ -3,7 +3,7 @@
 #    ./desktop
     ./shell
     ./coding
-#    ./terminal
+    ./terminal
 #    ./utils
 #    ./browser
 #    ./documents
