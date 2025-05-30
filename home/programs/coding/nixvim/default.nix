@@ -5,14 +5,14 @@
 }:
 {
   imports = [
-    ./lsp.nix
-    ./cmp.nix
+    # ./lsp.nix
+    # ./cmp.nix
     #./ai.nix
-    ./lualine.nix
-    ./treesitter.nix
-    ./hop.nix
-    ./ui.nix
-    ./mini.nix
+    # ./lualine.nix
+    # ./treesitter.nix
+    # ./hop.nix
+    # ./ui.nix
+    # ./mini.nix
   ];
   stylix.targets.nixvim.enable = true;
   programs.nixvim = {
@@ -21,8 +21,8 @@
     performance.combinePlugins = {
       enable = true;
       standalonePlugins = [
-        "copilot.lua"
-        "nvim-treesitter"
+        # "copilot.lua"
+        # "nvim-treesitter"
       ];
     };
     globals = {
@@ -129,7 +129,7 @@
       markdown-preview.enable = true;
     };
     extraPlugins = with pkgs.vimPlugins; [
-      fcitx-vim
+      # fcitx-vim
     ];
   };
 }
