@@ -5,14 +5,14 @@
 }:
 {
   imports = [
-    # ./lsp.nix
-    # ./cmp.nix
+     ./lsp.nix
+     ./cmp.nix
     #./ai.nix
-    # ./lualine.nix
-    # ./treesitter.nix
-    # ./hop.nix
-    # ./ui.nix
-    # ./mini.nix
+     ./lualine.nix
+     ./treesitter.nix
+     ./hop.nix
+     ./ui.nix
+    ./mini.nix 
   ];
   stylix.targets.nixvim.enable = true;
   programs.nixvim = {

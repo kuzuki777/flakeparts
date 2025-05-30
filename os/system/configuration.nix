@@ -110,7 +110,11 @@
   home-manager
   ntfs3g
   base16-schemes
+  #dev tools
+  gcc
+  gnumake
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
