@@ -83,6 +83,7 @@
 
   # Define a user account. Don't forget to set a password with 'passwd'.
   users.users.mark = {
+    shell = pkgs.fish;
     isNormalUser = true;
     description = "mark";
     extraGroups = [ "networkmanager" "wheel" ];
