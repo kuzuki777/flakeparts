@@ -11,6 +11,7 @@
       cursor_trail = 1;
       cursor_trail_start_threshold = 0;
       bold_font = "family='Maple Mono' style=ExtraBold variable_name=MapleMono";
+      font_size = 16;
       shell = "${pkgs.fish}/bin/fish";
     };
     extraConfig = ''
