@@ -12,6 +12,6 @@
       "flakes"
       "pipe-operators"
     ];
-    nixPath = [ "nixpkgs=${nixpkgs}" ];
+    #nixPath = [ "nixpkgs=${nixpkgs}" ];
   };
 }

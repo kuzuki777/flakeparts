@@ -10,6 +10,7 @@ in
       system = system;
       modules = [ 
         ../os
+        ../nix
         inputs.stylix.nixosModules.stylix
         inputs.niri.nixosModules.niri
       ];
