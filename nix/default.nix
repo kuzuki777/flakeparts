@@ -2,7 +2,7 @@
 {
   imports = [
    # ./substituters.nix
-   # ./nh.nix
+   ./nh.nix
    # ./nixpkgs.nix
   ];
 
