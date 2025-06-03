@@ -1,6 +1,6 @@
 { inputs, ... }: {
   imports = [
-#    ./desktop
+   ./desktop
     ./shell
     ./coding
     ./terminal
