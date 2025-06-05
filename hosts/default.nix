@@ -31,7 +31,7 @@ in
         inputs.stylix.homeModules.stylix
         inputs.niri.homeModules.niri
         inputs.nixvim.homeManagerModules.nixvim
-        inputs.catppuccin.homeManagerModules.catppuccin
+        inputs.catppuccin.homeModules.catppuccin
       ];
       extraSpecialArgs = { 
         inherit inputs;
