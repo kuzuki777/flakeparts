@@ -45,7 +45,7 @@
 
   };
 
-  outputs = inputs@{ flake-parts, nixpkgs, home-manager, ... }:
+  outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
 
       systems = [ "x86_64-linux" ];
@@ -65,7 +65,7 @@
         # Per-system attributes can be defined here. The self' and inputs'
         # module parameters provide easy access to attributes of the same
         # system.
-        treefmt = {
+                  treefmt = {
             projectRootFile = "flake.nix";
             programs.nixfmt.enable = true;
             programs.ruff-format.enable = true;
