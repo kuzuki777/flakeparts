@@ -52,7 +52,6 @@
     };
     home-manager = {
       enable = true;
-      useUserPackages = true;
     };
   };
 
