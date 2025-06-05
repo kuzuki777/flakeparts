@@ -1,14 +1,15 @@
-{ inputs, ... }: {
+{ inputs, ... }:
+{
   imports = [
-   ./desktop
+    ./desktop
     ./shell
     ./coding
     ./terminal
-#    ./utils
+    #    ./utils
     ./browser
-#    ./documents
-#    ./network
-#    ./study
-#    ./social
+    #    ./documents
+    #    ./network
+    #    ./study
+    #    ./social
   ];
 }

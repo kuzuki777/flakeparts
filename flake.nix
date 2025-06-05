@@ -45,7 +45,14 @@
 
   };
 
-  outputs = inputs@{ self, flake-parts, nixpkgs, home-manager, ... }:
+  outputs =
+    inputs@{
+      self,
+      flake-parts,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
 
       systems = [ "x86_64-linux" ];
@@ -60,12 +67,21 @@
         { _module.args = { inherit inputs self nixpkgs; }; }
 
       ];
-      
-      perSystem = { config, self', inputs', pkgs, system, ... }: {
-        # Per-system attributes can be defined here. The self' and inputs'
-        # module parameters provide easy access to attributes of the same
-        # system.
-                  treefmt = {
+
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          ...
+        }:
+        {
+          # Per-system attributes can be defined here. The self' and inputs'
+          # module parameters provide easy access to attributes of the same
+          # system.
+          treefmt = {
             projectRootFile = "flake.nix";
             programs.nixfmt.enable = true;
             programs.ruff-format.enable = true;
@@ -85,18 +101,21 @@
             };
           };
 
-        # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
-        packages.default = pkgs.hello;
-      };
+          # Equivalent to  inputs'.nixpkgs.legacyPackages.hello;
+          packages.default = pkgs.hello;
+        };
 
       flake = {
         # Merge the nixosConfigurations and homeConfigurations into top-level flake outputs
         # so other tools like `nixos-rebuild` or `home-manager` can use them
-        inherit ( import ./hosts { 
+        inherit
+          (import ./hosts {
             inherit nixpkgs inputs;
             system = "x86_64-linux";
           })
-          nixosConfigurations homeConfigurations;
+          nixosConfigurations
+          homeConfigurations
+          ;
       };
     };
 }

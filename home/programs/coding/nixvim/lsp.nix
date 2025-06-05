@@ -54,7 +54,7 @@
             enable = true;
             package = inputs.nil.packages.${pkgs.system}.nil;
             settings = {
-              formatting.command = ["nixfmt"];
+              formatting.command = [ "nixfmt" ];
               nix.flake = {
                 autoArchive = true;
               };

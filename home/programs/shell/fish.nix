@@ -4,22 +4,22 @@
     fish = {
       enable = true;
       shellAbbrs = {
-#        nixu = "nh os switch --ask";
-#        homeu = "nh home switch --ask";
-#        nixc = "doas systemctl start nh-clean.service";
-#        vim = "nvim";
-#        cd = "z";
+        #        nixu = "nh os switch --ask";
+        #        homeu = "nh home switch --ask";
+        #        nixc = "doas systemctl start nh-clean.service";
+        #        vim = "nvim";
+        #        cd = "z";
       };
       shellAliases = {
-#        "ls" = "exa";
-#        "l" = "exa -lah --icons=auto";
+        #        "ls" = "exa";
+        #        "l" = "exa -lah --icons=auto";
       };
-#      shellInit = ''
-#        zoxide init fish | source
-#        export PATH="$HOME/.local/bin"
-#        set -g fish_color_command = blue --italics
-#        set -g fish_color_quote = yellow --italics
-#      '';
+      #      shellInit = ''
+      #        zoxide init fish | source
+      #        export PATH="$HOME/.local/bin"
+      #        set -g fish_color_command = blue --italics
+      #        set -g fish_color_quote = yellow --italics
+      #      '';
       plugins = with pkgs.fishPlugins; [
         {
           name = "puffer";

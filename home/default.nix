@@ -7,9 +7,9 @@
 }:
 {
   imports = [
-  #  ./lib
+    #  ./lib
     ./programs
-  #  ./tweaks
+    #  ./tweaks
   ];
 
   home = {
@@ -51,8 +51,8 @@
     autoEnable = false;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
     image = pkgs.fetchurl {
-     url = "https://i.imgur.com/c3CWmia.jpeg";
-     sha256 = "0lgqwjl6jd1y84cz368s4sq0krzg67znqxirzapqxqvfdpn9rwbw";
+      url = "https://i.imgur.com/c3CWmia.jpeg";
+      sha256 = "0lgqwjl6jd1y84cz368s4sq0krzg67znqxirzapqxqvfdpn9rwbw";
     };
     # polarity = "dark";
     # targets = {

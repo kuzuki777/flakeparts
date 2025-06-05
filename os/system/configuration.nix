@@ -5,10 +5,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-     ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -48,7 +48,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.runXdgAutostartIfNone = true; #For i18N Input method
+  services.xserver.desktopManager.runXdgAutostartIfNone = true; # For i18N Input method
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -86,9 +86,12 @@
     shell = pkgs.fish;
     isNormalUser = true;
     description = "mark";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -101,20 +104,19 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-  git
-  vim
-  wget
-  curl
-  home-manager
-  ntfs3g
-  base16-schemes
-  #dev tools
-  gcc
-  gnumake
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+    git
+    vim
+    wget
+    curl
+    home-manager
+    ntfs3g
+    base16-schemes
+    #dev tools
+    gcc
+    gnumake
   ];
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

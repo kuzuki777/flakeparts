@@ -1,4 +1,8 @@
-{ inputs, nixpkgs, system }:
+{
+  inputs,
+  nixpkgs,
+  system,
+}:
 
 let
   pkgs = nixpkgs.legacyPackages.${system};
@@ -8,16 +12,16 @@ in
     nixos = nixpkgs.lib.nixosSystem {
       # inherit pkgs;
       system = system;
-      modules = [ 
+      modules = [
         ../os
         ../nix
         inputs.stylix.nixosModules.stylix
         inputs.niri.nixosModules.niri
       ];
-      specialArgs = { 
-        inherit inputs; 
+      specialArgs = {
+        inherit inputs;
         self = inputs.self;
-        
+
       };
     };
   };
@@ -25,7 +29,7 @@ in
   homeConfigurations = {
     mark = inputs.home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
-      modules = [ 
+      modules = [
         ../home
         ../modules/home-manager
         inputs.stylix.homeModules.stylix
@@ -33,7 +37,7 @@ in
         inputs.nixvim.homeManagerModules.nixvim
         inputs.catppuccin.homeModules.catppuccin
       ];
-      extraSpecialArgs = { 
+      extraSpecialArgs = {
         inherit inputs;
         self = inputs.self;
       };
@@ -41,4 +45,3 @@ in
   };
 
 }
-

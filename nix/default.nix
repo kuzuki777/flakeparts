@@ -1,9 +1,9 @@
 { nixpkgs, ... }:
 {
   imports = [
-   # ./substituters.nix
-   ./nh.nix
-   # ./nixpkgs.nix
+    # ./substituters.nix
+    ./nh.nix
+    # ./nixpkgs.nix
   ];
 
   nix = {

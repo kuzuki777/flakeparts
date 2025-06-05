@@ -67,4 +67,3 @@ in
     builtins.attrNames config.monitors |> builtins.filter (name: !config.monitors.${name}.isMain);
   config.lib.monitors.mainMonitor = config.monitors.${config.lib.monitors.mainMonitorName};
 }
-
