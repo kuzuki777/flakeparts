@@ -28,6 +28,13 @@
       fzf
       eza
       fd
+      # Dev
+      python313
+      nodejs_22
+      openjdk21
+      awscli2
+      mysql-workbench
+      vscode
     ];
 
   };
